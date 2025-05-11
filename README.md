@@ -1,4 +1,4 @@
-# encrypted-cloud-forensics-sim
+# -CBS71ETY-Forensic-Analysis-Frameworks-for-Encrypted-Cloud-Storage-Investigations
 
 A modular, provider-agnostic proof-of-concept layered framework for forensic investigations in encrypted cloud environments. It leverages volatile memory analysis, log reconstruction, metadata correlation, a lightweight workflow engine, and a real-time web dashboard to reconstruct user sessions, extract encryption keys, detect anomalies, and generate comprehensive forensic reports.
 
