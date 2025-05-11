@@ -1,0 +1,99 @@
+[
+      {
+        "session_id": "550e8400-e29b-41d4-a716-446655440000",  
+        "user_id": "user_A",                           
+        "action": "mount_encrypted_volume",            
+        "timestamp": "2025-05-10T14:35:10.456Z",        
+        "memory_ref": "0x7ffe2d30a000",                
+        "anomaly_flag": false                          
+      },
+      {
+        "session_id": "550e8400-e29b-41d4-a716-446655440000",
+        "user_id": "user_A",
+        "action": "upload_file",
+        "timestamp": "2025-05-10T14:36:22.789Z",
+        "memory_ref": "0x7ffe2d30b200",
+        "anomaly_flag": true
+      },
+      { … },
+      { … }
+    ]
+//       "database": {
+//         "connectionErrors": 0.01,
+//         "queryErrors": 0.02,
+//         "slowQueries": 0.1
+//       },
+//       "externalService": {
+            "timeoutErrors": 0.05,
+            "responseErrors": 0.02,
+            "rateLimitErrors": 0.01
+//         },
+//         "modules": {
+            "auth": 0.01,
+            "api": 0.02,
+            "database": 0.03,
+            "thirdParty": 0.01,
+            "scheduler": 0.02,
+            "fileSystem": 0.01
+//         }
+//       },
+//       "alertThresholds": {
+            "errorRate": 0.05,
+            "responseTime": 2000, // in milliseconds
+            "memoryUsage": 80,   // in percentage
+            "diskSpace": 90      // in percentage
+//         }
+//       },
+//       "encryption": {
+            "enabled": true,
+            "algorithm": "AES-256",
+            "keyManagement": {
+              "rotationInterval": "1 year",
+              "keyStorage": "HSM"
+            },
+            "dataAtRest": true,
+            "dataInTransit": true
+//         },
+//       },
+//       "backup": {
+            "enabled": true,
+            "frequency": "daily",
+            "retentionPeriod": "30 days",
+            "encryption": true,
+            "storageLocation": "S3"
+          }
+        }
+      },
+      "dataRetentionPolicies": {
+        "userAccounts": {
+          "activeRetention": "indefinite",
+          "inactiveRetention": "2 years",
+          "deletedRetention": "90 days"
+        },
+        "systemLogs": {
+          "errorLogs": "1 year",
+          "accessLogs": "6 months",
+          "auditLogs": "5 years"
+        },
+        "transactionData": {
+          "completedTransactions": "7 years",
+          "failedTransactions": "1 year"
+        },
+        "mediaFiles": {
+          "userUploads": "1 year after last access",
+          "systemGenerated": "6 months"
+        },
+        "analyticsData": {
+          "aggregatedStats": "indefinite",
+          "rawUserData": "2 years"
+        },
+        "backups": {
+          "fullBackups": "1 year",
+          "incrementalBackups": "3 months",
+          "configBackups": "5 years"
+        }
+      },
+      // ... other configurations
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+      {
+        "file_id": "file_001",
+        "user_id": "user_A",
+        "timestamp": "2025-05-10T14:32:05.123Z",
+        "file_hash": "3f5e8a1d4c9b7e2f6a8c1d3e5b7f9a0c123456789abcdef0123456789abcdef",  
+        "encryption_algorithm": "AES-256-XTS"
+      },
+      { … },
+      { … }
+    ]
+    

@@ -1,0 +1,51 @@
+{
+      "events": [
+        {
+          "id": 1,
+          "timestamp": "2025-05-10T08:13:45Z",
+          "type": "volume_mount",
+          "user_id": "user_alpha",
+          "detail": "VeraCrypt container mounted"
+        },
+        {
+          "id": 2,
+          "timestamp": "2025-05-10T08:14:02Z",
+          "type": "file_open",
+          "user_id": "user_alpha",
+          "detail": "Opened secret.docx"
+        }
+      ],
+    
+      "anomalies": [
+        {
+          "id": "anom_001",
+          "timestamp": "2025-05-10T23:50:12Z",
+          "type": "off_hour_key_extraction",
+          "user_id": "user_alpha",
+          "severity": "high"
+        },
+        {
+          "id": "anom_002",
+          "timestamp": "2025-05-10T09:22:30Z",
+          "type": "suspicious_delete_reupload",
+          "user_id": "user_bravo",
+          "severity": "medium"
+        }
+      ],
+    
+      "correlations": [
+        {
+          "timestamp": "2025-05-10T08:13:45Z",
+          "source": "memory_analysis",
+          "detail": "512-bit Serpent-XTS key found in RAM"
+        },
+        {
+          "timestamp": "2025-05-10T08:14:02Z",
+          "source": "log_analysis",
+          "detail": "User session recorded file open event"
+        }
+      ],
+    
+      "completeness": 85
+    }
+    

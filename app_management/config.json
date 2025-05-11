@@ -1,0 +1,160 @@
+{
+      "systemConfig": {
+        "appName": "ApplicationName",
+        "version": "1.0.0",
+        "environment": "production",
+        "serverPort": 3000,
+        "hostname": "localhost",
+        "apiVersion": "v1",
+        "timezone": "UTC",
+        "maxConcurrentProcesses": 10,
+        "sessionTimeout": 3600,
+        "enableHTTPS": true,
+        "sslCertPath": "/etc/ssl/certs/app-cert.pem",
+        "sslKeyPath": "/etc/ssl/private/app-key.pem"
+      },
+      "moduleToggles": {
+        "analytics": true,
+        "notifications": true,
+        "scheduler": true,
+        "reporting": true,
+        "userTracking": false,
+        "webhooks": true,
+        "caching": true,
+        "autoBackup": true,
+        "experimentalFeatures": false,
+        "debugMode": false
+      },
+      "apiKeys": {
+        "mainApiKey": "api_key_123456789",
+        "thirdPartyServices": {
+          "paymentProcessor": "pp_live_abcdefghijklm",
+          "emailService": "es_key_nopqrstuvwxyz",
+          "storageProvider": "sp_key_123456789",
+          "analyticsService": "as_key_abcdefghi",
+          "mapService": "ms_key_jklmnopqrs"
+        }
+      },
+      "environmentVariables": {
+        "NODE_ENV": "production",
+        "DATABASE_URL": "postgres://username:password@host:port/database",
+        "REDIS_URL": "redis://username:password@host:port",
+        "LOG_LEVEL": "info",
+        "CORS_ORIGIN": "*",
+        "MAX_UPLOAD_SIZE": "10mb",
+        "TEMP_FILE_PATH": "/tmp/app-files"
+      },
+      "userRoles": {
+        "admin": {
+          "accessLevel": 100,
+          "permissions": ["read", "write", "delete", "manage_users", "manage_system"],
+          "rateLimits": {
+            "requestsPerMinute": 1000,
+            "bulkOperations": true
+          }
+        },
+        "manager": {
+          "accessLevel": 75,
+          "permissions": ["read", "write", "delete", "manage_users"],
+          "rateLimits": {
+            "requestsPerMinute": 500,
+            "bulkOperations": true
+          }
+        },
+        "editor": {
+          "accessLevel": 50,
+          "permissions": ["read", "write"],
+          "rateLimits": {
+            "requestsPerMinute": 300,
+            "bulkOperations": false
+          }
+        },
+        "user": {
+          "accessLevel": 25,
+          "permissions": ["read"],
+          "rateLimits": {
+            "requestsPerMinute": 100,
+            "bulkOperations": false
+          }
+        },
+        "guest": {
+          "accessLevel": 10,
+          "permissions": ["limited_read"],
+          "rateLimits": {
+            "requestsPerMinute": 50,
+            "bulkOperations": false
+          }
+        }
+      },
+      "dataRetentionPolicies": {
+        "userAccounts": {
+          "activeRetention": "indefinite",
+          "inactiveRetention": "2 years",
+          "deletedRetention": "90 days"
+        },
+        "systemLogs": {
+          "errorLogs": "1 year",
+          "accessLogs": "6 months",
+          "auditLogs": "5 years"
+        },
+        "transactionData": {
+          "completedTransactions": "7 years",
+          "failedTransactions": "1 year"
+        },
+        "mediaFiles": {
+          "userUploads": "1 year after last access",
+          "systemGenerated": "6 months"
+        },
+        "analyticsData": {
+          "aggregatedStats": "indefinite",
+          "rawUserData": "2 years"
+        },
+        "backups": {
+          "fullBackups": "1 year",
+          "incrementalBackups": "3 months",
+          "configBackups": "5 years"
+        }
+      },
+      "loggingLevels": {
+        "console": "info",
+        "file": "debug",
+        "database": "warn",
+        "externalService": "error",
+        "modules": {
+          "auth": "debug",
+          "api": "info",
+          "database": "warn",
+          "thirdParty": "debug",
+          "scheduler": "info",
+          "fileSystem": "debug"
+        },
+        "rotationPolicy": {
+          "maxSize": "100mb",
+          "maxFiles": 10,
+          "compress": true
+        },
+        "alertThresholds": {
+          "errorRate": 0.05,
+          "responseTime": 2000,
+          "diskUsage": 0.85,
+          "memoryUsage": 0.75
+        }
+      },
+      "processControl": {
+        "gracefulShutdownTimeout": 30000,
+        "healthCheckInterval": 60000,
+        "workerThreads": 4,
+        "restartPolicy": "on-failure",
+        "maxRestartAttempts": 5,
+        "startupTimeout": 15000,
+        "resourceLimits": {
+          "maxMemory": "2GB",
+          "maxCPU": 0.75
+        },
+        "watchdogConfig": {
+          "enabled": true,
+          "interval": 30000,
+          "toleranceCount": 3
+        }
+      }
+    }

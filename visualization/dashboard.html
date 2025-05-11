@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Forensic Evidence Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/scripts.js"></script>
+</head>
+<body>
+<h2>Evidence & Activity Timeline</h2>
+<canvas id="timelineChart" width="800" height="400"></canvas>
+
+<script>
+fetch('/api/get_metadata')
+.then(res => res.json())
+.then(data => {
+// Prepare data for chart
+const ctx = document.getElementById('timelineChart').getContext('2d');
+const chart = new Chart(ctx, {
+type: 'line',
+data: {
+labels: data.timestamps,
+datasets: [{
+label: 'File Access Events',
+data: data.accessCounts,
+fill: false,
+backgroundColor: 'blue',
+borderColor: 'lightblue'
+}]
+},
+options: {
+responsive: true,
+title: { display: true, text: 'File Access Over Time' }
+}
+});
+});
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forensic Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- React / ReactDOM / Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    header { background: #333; color: #fff; padding: 1rem; }
+    .chart-container { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem; }
+    .chart-box { flex: 1 1 45%; min-width: 300px; background: #f9f9f9; padding: 1rem; border-radius: 4px; }
+    #workflow-diagram { width: 100%; height: 400px; }
+  </style>
+</head>
+<body>
+  <header><h1>Encrypted Cloud Forensics Dashboard</h1></header>
+  <div id="root"></div>
+
+  <!-- Our app code -->
+  <script type="text/babel" src="graph_data.js"></script>
+  <script type="text/babel" src="scripts.js"></script>
+</body>
+</html>

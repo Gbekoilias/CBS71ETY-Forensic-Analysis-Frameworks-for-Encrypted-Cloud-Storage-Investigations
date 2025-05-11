@@ -1,0 +1,85 @@
+[
+      {
+        "file_id": "file_001",                       
+        "size_bytes": 2345678,                       // Simulated file size
+        "access_patterns": [                         // Parsed from system_logs
+          { "event": "mount_encrypted_volume", "timestamp": "2025-05-10T14:35:10.456Z" },
+          { "event": "upload_file",          "timestamp": "2025-05-10T14:36:22.789Z" },
+          { … }
+        ],
+        "session_id": "550e8400-e29b-41d4-a716-446655440000",  
+        "reconstructed_timeline": [                  // Human-readable
+          "2025-05-10T14:35:10.456Z – mount_encrypted_volume",
+          "2025-05-10T14:36:22.789Z – upload_file",
+          "…"
+        ]
+      },
+      { … },
+      { … }
+    ]
+      ],
+      "encryption": {
+        "enabled": true,
+            "algorithm": "AES-256",
+            "keyManagement": {
+              "rotationInterval": "1 year",
+              "keyStorage": "HSM"
+            },
+            "dataAtRest": true,
+            "dataInTransit": true
+//         "backup": {
+            "enabled": true,
+            "frequency": "daily",
+            "retentionPeriod": "30 days",
+            "encryption": true,
+            "encryptionAlgorithm": "AES-256"
+          },
+          "encryptionKeyManagement": {
+            "keyRotationInterval": "1 year",
+            "keyStorage": "HSM"
+          "encryptionAtRest": true,
+          "encryptionInTransit": true
+        }
+      }
+    ]
+  }
+}
+  },
+  "dataSimulation": {
+    "metadata": {
+      "version": "1.0",
+      "description": "Simulated data for user activity and system logs.",
+      "created_at": "2025-05-10T14:32:05.123Z",
+      "updated_at": "2025-05-10T14:32:05.123Z"
+    },
+    "encrypted_data": [
+      {
+        "file_id": "file_001",
+        "user_id": "user_A",
+        "timestamp": "2025-05-10T14:32:05.123Z",
+        "file_hash": "3f5e8a1d4c9b7e2f6a8c1d3e5b7f9a0c123456789abcdef0123456789abcdef",  
+        "encryption_algorithm": "AES-256-XTS"
+      },
+      { … },
+      { … }
+    ],
+    "system_logs": [
+      {
+        "session_id": "550e8400-e29b-41d4-a716-446655440000",  
+        "user_id": "user_A",                           
+        "action": "mount_encrypted_volume",            
+        "timestamp": "2025-05-10T14:35:10.456Z",        
+        "memory_ref": "0x7ffe2d30a000",                
+        "anomaly_flag": false                          
+      },
+      {
+        "session_id": "550e8400-e29b-41d4-a716-446655440000",
+        "user_id": "user_A",
+        "action": "upload_file",
+        "timestamp": "2025-05-10T14:36:22.789Z",
+        "memory_ref": "0x7ffe2d30b200",
+        "anomaly_flag": true
+      },
+      { … },
+      { … }
+    ]

@@ -1,0 +1,5 @@
+Metric,Traditional Forensics (Disk Only),Layered Framework (Log Analysis)
+User Sessions Identified,1,6
+Anomalous Actions Flagged,0,2
+Log Parsing Success Rate (%),0,90
+Time to Reconstruct Timeline (min),,5
