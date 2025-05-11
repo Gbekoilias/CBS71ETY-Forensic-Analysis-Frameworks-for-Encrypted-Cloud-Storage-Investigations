@@ -35,28 +35,30 @@ A modular, provider-agnostic proof-of-concept layered framework for forensic inv
 ---
 
 ## Architecture & Folder Structure
+- **data/**
+  - `encrypted_data.json`   _Mocked encrypted file metadata, timestamps, user IDs, file hashes_
+  - `system_logs.json`    _Simulated user sessions, memory references, access timestamps, anomalies_
+  - `metadata.json`        _Reconstructed metadata: file sizes, access patterns, session IDs, timelines_
 
-├── data/
-│   ├── encrypted_data.json      # Mocked encrypted file metadata
-│   ├── system_logs.json         # Simulated user session & anomaly logs
-│   └── metadata.json            # Reconstructed metadata fragments
-├── models/                      # Core simulation & analysis scripts
-│   ├── memory_analysis.py
-│   ├── metadata_reconstruction.py
-│   └── user_behavior_model.py
-├── workflow_engine/             # Workflow orchestration
-│   ├── workflow_manager.js
-│   └── decision_tree.js
-├── visualization/               # Web dashboard assets
-│   ├── dashboard.html
-│   ├── scripts.js
-│   └── graph_data.js
-├── analysis_results/            # Final outputs & reports
-│   ├── analysis_output.json
-│   └── report.html
-└── README.md
+- **models/**
+  - `memory_analysis.py`        _Python: volatility‐style memory‐artifact extraction_
+  - `metadata_reconstruction.py` _Python: piece together fragmented metadata & align with logs_
+  - `user_behavior_model.py`    _Python: simulate user actions & anomaly detection_
 
+- **workflow_engine/**
+  - `workflow_manager.js`   _Node.js: orchestrates metadata ➔ logs ➔ correlation steps_
+  - `decision_tree.js`        _JS: rule‐based alerts for suspicious encrypted activity_
 
+- **visualization/**
+  - `dashboard.html`        _React + Chart.js interface for timelines, graphs & anomaly highlights_
+  - `scripts.js`                _Event handlers, data fetch (WebSockets/REST) & UI glue code_
+  - `graph_data.js`           _D3/Chart.js data‐prep functions for evidence‐flow diagrams_
+
+- **analysis_results/**
+  - `analysis_output.json` _Final structured simulation output: reconstructed events, summaries_
+  - `report.html`               _Auto‐generated HTML forensic report with embedded charts & tables_
+
+- **README.md**                _Project overview, setup instructions, and usage guide._
 ---
 
 ## Prerequisites
